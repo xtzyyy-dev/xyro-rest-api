@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "xyro-rest-api",
+  "main": "src/index.js",
+  "compatibility_date": "2025-09-01",
+
+  // UI (folder public) disajikan sebagai static assets.
+  // Hanya /api/* yang dijalankan oleh Worker.
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "run_worker_first": ["/api/*"]
+  },
+
+  // Hub real-time: penghitung request global + stream SSE.
+  "durable_objects": {
+    "bindings": [{ "name": "HUB", "class_name": "Hub" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Hub"] }],
+
+  "observability": { "enabled": true }
+}

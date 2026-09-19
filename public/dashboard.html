@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Heyyarya</title>
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body data-live>
+  <div class="shell">
+    <aside class="side" id="side" aria-label="Dashboard menu">
+      <a class="brand" href="/" aria-label="Heyyarya home">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" fill="#fff"/><path d="M7 5.5v13M17 5.5v13M7 12h10" stroke="#000" stroke-width="2.6" fill="none"/></svg>
+        Heyyarya
+      </a>
+      <nav id="nav"></nav>
+      <div class="side-foot" id="sideFoot">Connecting to the edge…</div>
+    </aside>
+
+    <div class="main">
+      <header class="top">
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu"></button>
+        <div class="crumb" id="crumb">Server status</div>
+        <div class="top-right">
+          <span class="live" id="liveState" data-on="0"><i class="dot"></i><span class="txt">Connecting</span></span>
+          <button class="icon-btn" id="bell" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Notifications"></button>
+          <button class="btn small" id="loginBtn" data-login type="button">Log in</button>
+        </div>
+      </header>
+      <main id="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div class="pop" id="notifPanel" hidden></div>
+  <dialog id="loginDlg"></dialog>
+  <div id="toasts" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+  <script src="/dashboard.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "xyro-rest-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Heyyarya Rest API: real-time REST API platform on Cloudflare Workers.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

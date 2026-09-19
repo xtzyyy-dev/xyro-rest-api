@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Heyyarya Rest API: build for developers</title>
+  <meta name="description" content="Real-time REST endpoints on Cloudflare's edge. Utilities, scrapers and live server data. Works with Node.js and Express.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a class="brand" href="/" aria-label="Heyyarya home">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" fill="#fff"/><path d="M7 5.5v13M17 5.5v13M7 12h10" stroke="#000" stroke-width="2.6" fill="none"/></svg>
+        Heyyarya
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="/dashboard#endpoints">Endpoints</a>
+        <a href="/dashboard#uptime">Uptime</a>
+        <a href="/dashboard#pricing">Pricing</a>
+        <a href="/dashboard">Dashboard</a>
+      </nav>
+      <button class="btn small" id="loginBtn" data-login type="button">Log in</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="beam" aria-hidden="true"></div>
+      <div class="floor" aria-hidden="true"></div>
+      <div class="wrap hero-in">
+        <div>
+          <p class="chip">Build for developer</p>
+          <h1>Heyyarya<br>Rest API</h1>
+          <p class="lead">Real-time REST endpoints on Cloudflare's edge: utilities, scrapers and live server data behind one clean API. Works with Node.js, Express and any HTTP client.</p>
+          <div class="actions">
+            <a class="btn" href="/dashboard#endpoints">Explore endpoint API</a>
+            <a class="btn ghost" data-repo="" href="#">View on GitHub</a>
+          </div>
+          <p class="fine" id="heroStat">Connecting to the edge…</p>
+        </div>
+
+        <div class="term spot">
+          <div class="term-h">
+            <button class="tab" data-tab="express" aria-pressed="true" type="button">Express</button>
+            <button class="tab" data-tab="fetch" aria-pressed="false" type="button">fetch</button>
+            <button class="tab" data-tab="curl" aria-pressed="false" type="button">curl</button>
+          </div>
+          <pre id="code" tabindex="0"></pre>
+          <div class="term-f">
+            <button class="btn small" id="run" type="button">Run request</button>
+            <span class="mut fine" id="runMeta">Live response from this server</span>
+          </div>
+          <pre class="out" id="out" aria-live="polite">Waiting…</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="scrapers">
+      <div class="wrap split">
+        <div>
+          <h2 class="h2">Scrapers, ready to run</h2>
+          <p class="lead">Send a URL, get clean JSON back. Page metadata and link maps run on the edge, so there is no browser to host and no proxy to manage.</p>
+          <div class="actions">
+            <a class="btn" href="/dashboard#scrapers">Browser scrapers</a>
+            <a class="btn ghost" data-repo="/pulls" href="#">Share yours</a>
+          </div>
+        </div>
+        <ul class="feat">
+          <li class="spot"><code>GET /api/scrape/meta</code><p>Title, description, canonical URL and social image for any page.</p></li>
+          <li class="spot"><code>GET /api/scrape/links</code><p>Every link on a page, resolved to absolute URLs and de-duplicated.</p></li>
+          <li class="spot"><code>Your scraper next</code><p>Scrapers are plain route handlers in src/index.js. Add one and share it with the community.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="tiles">
+          <a class="tile spot" href="/dashboard#endpoints">
+            <h3>Endpoints</h3>
+            <p class="mut">Utilities, scrapers and realtime streams, each with curl and Express examples.</p>
+            <p class="big"><span id="tileEp">–</span><small>live endpoints</small></p>
+          </a>
+          <a class="tile spot" href="/dashboard#uptime">
+            <h3>Uptime</h3>
+            <p class="mut">Health checks run against the real API, with a history strip for every service.</p>
+            <p class="big"><span id="tileUp">–</span><small id="tileUpSub"></small></p>
+          </a>
+          <a class="tile spot" href="/dashboard#pricing">
+            <h3>Pricing</h3>
+            <p class="mut">Start free. Move up when your traffic does.</p>
+            <p class="big"><span id="tilePr">–</span><small>per month</small></p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec start">
+      <div class="wrap">
+        <h2 class="h2">Get started</h2>
+        <p class="lead">Start building. It's premium.</p>
+        <div class="cta4">
+          <div><button class="btn wide" data-login type="button">Create account</button><p class="cap">Free plan, no card needed</p></div>
+          <div><a class="btn wide" href="/dashboard#endpoints">Read the docs</a><p class="cap">Every endpoint with examples</p></div>
+          <div><a class="btn wide" href="/dashboard#pricing">See pricing</a><p class="cap">Free, Pro and Scale plans</p></div>
+          <div><a class="btn wide" href="/dashboard#status">Open dashboard</a><p class="cap">Live server status</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <a class="brand" href="/">Heyyarya Rest API</a>
+      <nav aria-label="Footer">
+        <a href="/dashboard#endpoints">Endpoints</a>
+        <a href="/dashboard#uptime">Uptime</a>
+        <a href="/dashboard#pricing">Pricing</a>
+        <a data-repo="" href="#">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <dialog id="loginDlg"></dialog>
+  <div id="toasts" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+  <script src="/home.js" defer></script>
+</body>
+</html>
